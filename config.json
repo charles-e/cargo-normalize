@@ -1,0 +1,53 @@
+{
+    "projects": {
+        "safe": "../bh-safecoin"
+    },
+    "crates": [
+        {
+            "name": "safecoin-cli",
+            "proj": "saf",
+            "loc": "cli"
+        },
+        {
+            "name": "safecoin-program-test",
+            "proj": "safe",
+            "loc": "program-test"
+        },
+        {
+            "name": "safecoin-sdk",
+            "proj": "safe",
+            "loc": "sdk"
+        },
+        {
+            "name": "safecoin-program",
+            "proj": "safe",
+            "loc": "sdk/program"
+        },
+        {
+            "name": "safecoin-logger",
+            "proj": "safe",
+            "loc": "logger"
+        },
+        {
+            "name": "safecoin-clap-utils",
+            "proj": "safe",
+            "loc": "clap-utils"
+        },
+        {
+            "name": "safecoin-cli-config",
+            "proj": "safe",
+            "loc": "cli-config"
+        },
+        {
+            "name": "safecoin-cli-output",
+            "proj": "safe",
+            "loc": "cli-output"
+        },
+        {
+            "name" : "safecoin-account-decoder",
+            "proj": "safe",
+            "loc" : "account-decoder"
+
+        }
+    ]
+}
