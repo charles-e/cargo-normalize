@@ -1,11 +1,11 @@
 {
     "projects": {
-        "safe": "../bh-safecoin"
+        "safe": "../bh-safecoin", "spl" : "../safecoin-program-library"
     },
     "crates": [
         {
             "name": "safecoin-cli",
-            "proj": "saf",
+            "proj": "safe",
             "loc": "cli"
         },
         {
@@ -44,10 +44,19 @@
             "loc": "cli-output"
         },
         {
-            "name" : "safecoin-account-decoder",
+            "name": "safecoin-account-decoder",
             "proj": "safe",
-            "loc" : "account-decoder"
-
+            "loc": "account-decoder"
+        },
+        {
+            "name": "safecoin-vote-program",
+            "proj": "safe",
+            "loc": "programs/vote"
+        },
+        {
+            "name": "safe-token",
+            "proj": "spl",
+            "loc": "token/program"
         }
     ]
 }
