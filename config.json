@@ -69,67 +69,90 @@
         {
             "name": "solana-cli",
             "proj": "sol",
-            "loc": "cli"
+            "loc": "cli",
+            "map" : "safecoin-cli"
         },
         {
             "name": "solana-program-test",
             "proj": "sol",
-            "loc": "program-test"
+            "loc": "program-test",
+            "map" : "safecoin-program-test"
+
         },
         {
             "name": "solana-sdk",
             "proj": "sol",
-            "loc": "sdk"
+            "loc": "sdk",
+            "map": "safecoin-sdk"
         },
         {
             "name": "solana-program",
             "proj": "sol",
-            "loc": "sdk/program"
+            "loc": "sdk/program",
+            "map": "safecoin-program"
+
         },
         {
             "name": "solana-logger",
             "proj": "sol",
-            "loc": "logger"
+            "loc": "logger",
+            "map": "safecoin-logger"
+
         },
         {
             "name": "solana-clap-utils",
             "proj": "sol",
-            "loc": "clap-utils"
+            "loc": "clap-utils",
+            "map": "safecoin-clap-utils"
+
         },
         {
             "name": "solana-cli-config",
             "proj": "sol",
-            "loc": "cli-config"
+            "loc": "cli-config",
+            "map" : "safecoin-cli-config"
         },
         {
             "name": "solana-client",
             "proj": "sol",
-            "loc": "client"
+            "loc": "client",
+            "map" : "safecoin-client"
+
         },
         {
             "name": "solana-cli-output",
             "proj": "sol",
-            "loc": "cli-output"
+            "loc": "cli-output",
+            "map" : "safecoin-cli-output"
+
         },
         {
             "name": "solana-remote-wallet",
             "proj": "sol",
-            "loc": "remote-wallet"
+            "loc": "remote-wallet",
+            "map" : "safecoin-remote-wallet"
+
         },
         {
             "name": "solana-account-decoder",
             "proj": "sol",
-            "loc": "account-decoder"
+            "loc": "account-decoder",
+            "map": "safecoin-account-decoder"
+
         },
         {
             "name": "solana-vote-program",
             "proj": "sol",
-            "loc": "programs/vote"
+            "loc": "programs/vote",
+            "map": "safecoin-vote-program"
+
         },
         {
             "name": "spl-token",
             "proj": "solpl",
-            "loc": "token/program"
+            "loc": "token/program",
+            "map": "safe-token"
+
         }
     ]
 }

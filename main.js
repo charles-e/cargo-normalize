@@ -8,7 +8,8 @@ let config = JSON.parse(rawconfig);
 //console.log(config);
 let args = process.argv.slice(2);
 //console.log(process.argv);
-let path = args[0];
+let do_mapping = (args[0] == "-m");
+let path = do_mapping ? args[1] : args[0];
 //console.log(`target: ${path}`);
 let possibles = {};
 for (c in config.crates) {
@@ -30,7 +31,12 @@ let edit_toml = (toml_obj, level) => {
         // delete version and set path where necessary/
         for (crate in toml_obj.dependencies) {
                 let hit = possibles[crate];
+                let map_to = undefined;
                 if (hit) {
+                        if (do_mapping) {
+                                map_to = hit.map;
+                                hit = possibles[map_to];
+                        }
                         let root = config.projects[hit.proj];
                         let path = new_path(level, root, hit.loc);
                         if (toml_obj["dependencies"][crate]["version"] != undefined) {
@@ -41,13 +47,26 @@ let edit_toml = (toml_obj, level) => {
                                 // just a version string
                                 toml_obj["dependencies"][crate] = { "path": path }
                         }
+                        if (do_mapping) {
+                                let temp = toml_obj["dependencies"][crate];
+                                toml_obj["dependencies"][map_to] = temp;
+                                delete (toml_obj["dependencies"][crate]);
+                        }
 
                 }
 
         }
+
+
         for (crate in toml_obj["dev-dependencies"]) {
+                let map_to = undefined;
+
                 let hit = possibles[crate];
                 if (hit) {
+                        if (do_mapping) {
+                                map_to = hit.map;
+                                hit = possibles[map_to];
+                        }
                         // console.log(`${crate} loc=${hit.loc} level=${level}`);
                         let root = config.projects[hit.proj];
                         let path = new_path(level, root, hit.loc);
@@ -58,6 +77,11 @@ let edit_toml = (toml_obj, level) => {
                         } else {
                                 // just a version string
                                 toml_obj["dev-dependencies"][crate] = { "path": path }
+                        }
+                        if (do_mapping) {
+                                let temp = toml_obj["dev-dependencies"][crate];
+                                toml_obj["dev-dependencies"][map_to] = temp;
+                                delete (toml_obj["dev-dependencies"][crate]);
                         }
                 }
         }
