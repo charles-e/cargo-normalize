@@ -1,11 +1,14 @@
 {
     "projects": {
-        "safe": "../bh-safecoin", "spl" : "../safecoin-program-library"
+        "safe": "../bh-safecoin",
+        "spl": "../safecoin-program-library",
+        "sol": "../solana",
+        "solpl": "../solana-program-library"
     },
     "crates": [
         {
             "name": "safecoin-cli",
-            "proj": "safe",
+            "proj": "saf",
             "loc": "cli"
         },
         {
@@ -39,6 +42,11 @@
             "loc": "cli-config"
         },
         {
+            "name": "safecoin-client",
+            "proj": "safe",
+            "loc": "client"
+        },
+        {
             "name": "safecoin-cli-output",
             "proj": "safe",
             "loc": "cli-output"
@@ -56,6 +64,71 @@
         {
             "name": "safe-token",
             "proj": "spl",
+            "loc": "token/program"
+        },
+        {
+            "name": "solana-cli",
+            "proj": "sol",
+            "loc": "cli"
+        },
+        {
+            "name": "solana-program-test",
+            "proj": "sol",
+            "loc": "program-test"
+        },
+        {
+            "name": "solana-sdk",
+            "proj": "sol",
+            "loc": "sdk"
+        },
+        {
+            "name": "solana-program",
+            "proj": "sol",
+            "loc": "sdk/program"
+        },
+        {
+            "name": "solana-logger",
+            "proj": "sol",
+            "loc": "logger"
+        },
+        {
+            "name": "solana-clap-utils",
+            "proj": "sol",
+            "loc": "clap-utils"
+        },
+        {
+            "name": "solana-cli-config",
+            "proj": "sol",
+            "loc": "cli-config"
+        },
+        {
+            "name": "solana-client",
+            "proj": "sol",
+            "loc": "client"
+        },
+        {
+            "name": "solana-cli-output",
+            "proj": "sol",
+            "loc": "cli-output"
+        },
+        {
+            "name": "solana-remote-wallet",
+            "proj": "sol",
+            "loc": "remote-wallet"
+        },
+        {
+            "name": "solana-account-decoder",
+            "proj": "sol",
+            "loc": "account-decoder"
+        },
+        {
+            "name": "solana-vote-program",
+            "proj": "sol",
+            "loc": "programs/vote"
+        },
+        {
+            "name": "spl-token",
+            "proj": "solpl",
             "loc": "token/program"
         }
     ]

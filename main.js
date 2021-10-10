@@ -5,11 +5,11 @@ var fs = require('fs');
 let HOME = process.env.HOME;
 let rawconfig = fs.readFileSync(`${HOME}/.config/cargoref.json`);
 let config = JSON.parse(rawconfig);
-console.log(config);
+//console.log(config);
 let args = process.argv.slice(2);
-console.log(process.argv);
+//console.log(process.argv);
 let path = args[0];
-console.log(`target: ${path}`);
+//console.log(`target: ${path}`);
 let possibles = {};
 for (c in config.crates) {
         let crate = config.crates[c];
@@ -27,13 +27,13 @@ let new_path = (level, root, loc) => {
 }
 
 let edit_toml = (toml_obj, level) => {
-        // delete version and set path where necessary
+        // delete version and set path where necessary/
         for (crate in toml_obj.dependencies) {
                 let hit = possibles[crate];
                 if (hit) {
                         let root = config.projects[hit.proj];
                         let path = new_path(level, root, hit.loc);
-                        if (toml_obj["dependencies"][crate]["version"]) {
+                        if (toml_obj["dependencies"][crate]["version"] != undefined) {
                                 // explicit object
                                 delete (toml_obj["dependencies"][crate]["version"]);
                                 toml_obj["dependencies"][crate]["path"] = path;
@@ -41,6 +41,7 @@ let edit_toml = (toml_obj, level) => {
                                 // just a version string
                                 toml_obj["dependencies"][crate] = { "path": path }
                         }
+
                 }
 
         }
@@ -50,7 +51,7 @@ let edit_toml = (toml_obj, level) => {
                         // console.log(`${crate} loc=${hit.loc} level=${level}`);
                         let root = config.projects[hit.proj];
                         let path = new_path(level, root, hit.loc);
-                        if (toml_obj["dependencies"][crate]["version"]) {
+                        if (toml_obj["dev-dependencies"][crate]["version"] != undefined) {
                                 // explicit object
                                 delete (toml_obj["dev-dependencies"][crate]["version"]);
                                 toml_obj["dev-dependencies"][crate]["path"] = path;
@@ -92,7 +93,7 @@ let recurse_dir = (ppath, level) => {
                                 }
 
                         } catch (err) {
-                                console.log(err);
+                                console.log(`error ${err} editing ${file}`)
                         }
                 }
         });
