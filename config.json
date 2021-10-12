@@ -8,7 +8,7 @@
     "crates": [
         {
             "name": "safecoin-cli",
-            "proj": "saf",
+            "proj": "safe",
             "loc": "cli"
         },
         {
@@ -60,6 +60,12 @@
             "name": "safecoin-vote-program",
             "proj": "safe",
             "loc": "programs/vote"
+        },
+        {
+            "name": "safecoin-remote-wallet",
+            "proj": "safe",
+            "loc": "remote-wallet"
+
         },
         {
             "name": "safe-token",
